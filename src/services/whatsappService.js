@@ -14,13 +14,14 @@ class WhatsAppService {
           messaging_product: 'whatsapp',
           to,
           text: { body },
-          context: {
-            message_id: messageId,
-          },
+          // context: {
+          //   message_id: messageId,
+          // },
         },
       });
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('<<<<<<<<<<<<-----------Error sending message-------------->>>>>>>>>>>>>>>>>>>>>>>>>');
+      console.error(error);
     }
   }
 
@@ -39,7 +40,8 @@ class WhatsAppService {
         },
       });
     } catch (error) {
-      console.error('Error marking message as read:', error);
+      console.error('<<<<<<<<<<<<-----------Error marking message as read-------------->>>>>>>>>>>>>>>>>>>>>>>>>');
+      console.error(error);
     }
   }
 
@@ -65,7 +67,36 @@ class WhatsAppService {
         },
       });      
     } catch (error) {
-      console.error(error)
+      console.error('Error sending interactive buttons');
+      console.error(error);
+    }
+  }
+
+  async sendLocationMessage(to, location) {    
+    try {
+      const {name, address, position} = location;
+
+      await axios({
+        method: 'POST',
+        url: `https://graph.facebook.com/${config.API_VERSION}/${config.BUSINESS_PHONE}/messages`,
+        headers: {
+          Authorization: `Bearer ${config.API_TOKEN}`,
+        },
+        data: {
+          messaging_product: 'whatsapp',
+          to,
+          type: 'location',
+          location: {
+            latitude: position.lat,
+            longitude: position.lng,
+            name: name,
+            address: address
+          }
+        },
+      });
+    } catch (error) {
+      console.error('<<<<<<<<<<<<-----------Error sending location-------------->>>>>>>>>>>>>>>>>>>>>>>>>');
+      console.error(error);
     }
   }
 }
