@@ -43,11 +43,9 @@ class MessageHandler {
       await this.handleMenuOptions(DESTINATION_PHONE, option);
       await whatsappService.markAsRead(message.id);
     }else{
-      console.log(message)
       const DESTINATION_PHONE = (config.NODE_ENV === 'PROD')? message.from : config.DEV_PHONE;
-      console.log(`---------DESTINATION_PHONE: ${DESTINATION_PHONE}---------------`)
-      // const message= `Perdon, pero no estoy programado para responder el mesaje que enviaste. Recauerda que solo soy un asistente que puede respoder a las opciones por las cuales que voy guiando.\nPara ver el menú principal envia *menu*`
-      // await whatsappService.sendMessage(DESTINATION_PHONE, message);
+      const response= `Perdon, pero no estoy programado para responder el mesaje que enviaste. Recauerda que solo soy un asistente que puede respoder a las opciones por las cuales que voy guiando.\nPara ver el menú principal envia *menu*`
+      await whatsappService.sendMessage(DESTINATION_PHONE, response);
     }
 
   }
