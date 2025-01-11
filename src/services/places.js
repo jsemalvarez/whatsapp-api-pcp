@@ -274,7 +274,7 @@ export const places = [
         position: {lat:'-38.013220416771915', lng:'-57.5352838972828'},
         phone:'02234514681',
         link:'https://www.instagram.com/torretanquemdp',
-        schedules: 'Lunes a Viernes de 8:00hs a 15:00hs',
+        schedules: 'Lunes a Viernes de 8:00 a 14:45\n y de 18:00 a 20:45\n Sabados y Domingos de 18:00 a 20:45',
         description:'*MIÉRCOLES ENTRADA LIBRE*.\nDesde su mirador 360 se puede apreciar una magnifica vista del mar y de cada rincón de la ciudad. Un paseo ideal para familia, amigos o parejas',
     },
     {
@@ -537,7 +537,7 @@ export const places = [
         position: {lat:'-38.00614950642845', lng:'-57.541706422455306'},
         phone:'---',
         link:'https://www.instagram.com/vivendinosaurios/',
-        schedules: '',
+        schedules: 'Lunes a Viernes de 23:00 a 00:00. Sábados y Domingos de 10:00 a 23:00',
         description:'Un viaje a la prehistoria. Más de 50 Dinosaurios Gigantes que se mueven y emiten sonidos. Además de Experiencias Inmersivas, un patio de juegos y muchas actividades para disfrutar en GRANDEZzzzzz',
     },
     {

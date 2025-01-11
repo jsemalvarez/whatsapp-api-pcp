@@ -27,7 +27,7 @@ class MessageHandler {
           await whatsappService.sendLocationMessage(DESTINATION_PHONE, location );
         }
         
-      }else if(incommingMessage === 'menu'){
+      }else if(this.isWelcomeMenuRequest(incommingMessage)){
         await this.sendWelcomeMenu(DESTINATION_PHONE);
       }
       else{
@@ -42,6 +42,10 @@ class MessageHandler {
       const option = message?.interactive?.button_reply?.id;
       await this.handleMenuOptions(DESTINATION_PHONE, option);
       await whatsappService.markAsRead(message.id);
+    }else{
+      const DESTINATION_PHONE = (config.NODE_ENV === 'PROD')? message.from : config.DEV_PHONE;
+      const message= `Perdon, pero no estoy programado para responder el mesaje que enviaste. Recauerda que solo soy un asistente que puede respoder a las opciones por las cuales que voy guiando.\nPara ver el menú principal envia menu`
+      await whatsappService.sendMessage(DESTINATION_PHONE, message, message.id);
     }
 
   }
@@ -49,6 +53,11 @@ class MessageHandler {
   isGreeting(message){
     const greetings = ['hola','hola ','hola,','hola.', 'buenas'];
     return greetings.includes(message)
+  }
+
+  isWelcomeMenuRequest(message) {
+    const menuKeywords = ['menú', 'menu', 'menu.', 'menu,', 'menu!'];
+    return menuKeywords.some(keyword => message.includes(keyword));
   }
 
   getSenderName(senderInfo){
@@ -64,7 +73,7 @@ class MessageHandler {
   }
 
   async sendWelcomeMenu(to){
-    const menuMessage = 'Elige una opcion';
+    const menuMessage = 'Elige una opcion\n*puedens volver a este menú escribiendo *menu*';
     const buttons = [
       { type: 'reply', reply: { id: 'welcomeMenuLugares', title: 'Lugares'} },
       { type: 'reply', reply: { id: 'welcomeMenuEventos', title: 'Eventos'} },
@@ -109,7 +118,7 @@ class MessageHandler {
     const menuMessage = '*Lugares con gastronomia:*';
     const buttons = [
       { type: 'reply', reply: { id: 'foodPlacesMenuCafe', title: 'Cafes'} },
-      { type: 'reply', reply: { id: 'foodPlacesMenuRestaurante', title: 'Restauntes'} },
+      { type: 'reply', reply: { id: 'foodPlacesMenuRestaurante', title: 'Restaurantes'} },
       { type: 'reply', reply: { id: 'foodPlacesMenuFastFood', title: 'Fastfood/Foodtrucks'} },
     ];
 
