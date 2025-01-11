@@ -537,7 +537,7 @@ export const places = [
         position: {lat:'-38.00614950642845', lng:'-57.541706422455306'},
         phone:'---',
         link:'https://www.instagram.com/vivendinosaurios/',
-        schedules: 'Lunes a Viernes de 23:00 a 00:00. Sábados y Domingos de 10:00 a 23:00',
+        schedules: 'Lunes a Viernes de 14:00 a 00:00. Sábados y Domingos de 10:00 a 23:00',
         description:'Un viaje a la prehistoria. Más de 50 Dinosaurios Gigantes que se mueven y emiten sonidos. Además de Experiencias Inmersivas, un patio de juegos y muchas actividades para disfrutar en GRANDEZzzzzz',
     },
     {
