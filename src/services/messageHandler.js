@@ -76,7 +76,7 @@ class MessageHandler {
     const menuMessage = 'Elige una opcion\n*puedens volver a este menú escribiendo *menu*';
     const buttons = [
       { type: 'reply', reply: { id: 'welcomeMenuLugares', title: 'Lugares'} },
-      { type: 'url', url: 'https://paseosconpequesmdp.web.app/#custom-map', title: 'Eventos' },
+      { type: 'reply', reply: { id: 'welcomeMenuEventos', title: 'Eventos'} },
       { type: 'reply', reply: { id: 'welcomeMenuPDF', title: 'Guia de lugares PDF'} },
     ];
 
@@ -190,6 +190,7 @@ class MessageHandler {
         break;
       case 'welcomeMenuEventos':
         // await this.sendEventsMenu(to);
+        //{ type: 'url', url: 'https://paseosconpequesmdp.web.app/#custom-map', title: 'Eventos' },
         response = 'puedes ver el calendario de eventos en nuestro sitio web https://paseosconpequesmdp.web.app'
         break;
       case 'welcomeMenuPDF':
