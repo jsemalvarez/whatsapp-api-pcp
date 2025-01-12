@@ -76,7 +76,7 @@ class MessageHandler {
     const menuMessage = 'Elige una opcion\n*puedens volver a este menú escribiendo *menu*';
     const buttons = [
       { type: 'reply', reply: { id: 'welcomeMenuLugares', title: 'Lugares'} },
-      { type: 'reply', reply: { id: 'welcomeMenuEventos', title: 'Eventos'} },
+      { type: 'url', url: 'https://paseosconpequesmdp.web.app/#custom-map', title: 'Eventos' },
       { type: 'reply', reply: { id: 'welcomeMenuPDF', title: 'Guia de lugares PDF'} },
     ];
 
