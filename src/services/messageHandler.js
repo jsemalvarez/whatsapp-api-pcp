@@ -191,13 +191,7 @@ class MessageHandler {
       case 'welcomeMenuEventos':
         // await this.sendEventsMenu(to);
         //{ type: 'url', url: 'https://paseosconpequesmdp.web.app/#custom-map', title: 'Eventos' },
-        // response = 'puedes ver el calendario de eventos en nuestro sitio web https://paseosconpequesmdp.web.app'
-        const menuMessage = 'Haz clic para ver el calendario de eventos';
-        const buttons = [
-          { type: 'url', url: 'https://paseosconpequesmdp.web.app/#custom-map', title: 'Eventos' },
-        ];
-    
-        await whatsappService.sendInteractiveButtons(to, menuMessage, buttons)
+        response = 'puedes ver el calendario de eventos en nuestro sitio web https://paseosconpequesmdp.web.app/#custom-map'
         break;
       case 'welcomeMenuPDF':
         response = 'puedes descargar nuestra guia de lugares en PDF en el siguiente link: https://drive.google.com/drive/folders/1tIgrbBYre1A8gKQjQtbNeeeAd_qoHaDV'
