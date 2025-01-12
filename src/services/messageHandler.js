@@ -31,7 +31,7 @@ class MessageHandler {
         await this.sendWelcomeMenu(DESTINATION_PHONE);
       }
       else{
-        const response = `El mensaje *${message.text.body}* no es una opcion valida para poder darte una respues. Para ver el menu principal, envia la palabra *menu*`;
+        const response = `El mensaje *${message.text.body}* no es una opcion valida para poder darte una respuesta. Para ver el menu principal, envia la palabra *menu*`;
         await whatsappService.sendMessage(DESTINATION_PHONE, response, message.id);
       }
 
@@ -44,7 +44,7 @@ class MessageHandler {
       await whatsappService.markAsRead(message.id);
     }else{
       const DESTINATION_PHONE = (config.NODE_ENV === 'PROD')? message.from : config.DEV_PHONE;
-      const response= `Perdon, pero no estoy programado para responder el mesaje que enviaste. Recauerda que solo soy un asistente que puede respoder a las opciones por las cuales que voy guiando.\nPara ver el menú principal envia *menu*`
+      const response= `Perdon, pero no estoy programado para responder el mesaje que enviaste. Recauerda que solo soy un asistente que puede responder a las opciones por las cuales te voy guiando.\nPara ver el menú principal envia *menu*`
       await whatsappService.sendMessage(DESTINATION_PHONE, response);
     }
 
